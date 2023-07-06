@@ -2319,6 +2319,7 @@ GameObject:
   - component: {fileID: 4839406578464816}
   - component: {fileID: 33332122267339999}
   - component: {fileID: 23008300404202695}
+  - component: {fileID: 1417268646}
   m_Layer: 0
   m_Name: saber_light
   m_TagString: Untagged
@@ -2391,6 +2392,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1417268646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137489481481901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5b028f5ebc85f9f4a94b32abb5811a3c, type: 2}
 --- !u!1 &1182023885134003
 GameObject:
   m_ObjectHideFlags: 0
@@ -18633,6 +18651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4142851573111517}
+  - component: {fileID: 1043227458}
   m_Layer: 5
   m_Name: Saber 9
   m_TagString: Untagged
@@ -18649,13 +18668,30 @@ Transform:
   m_GameObject: {fileID: 1649708466534097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1250}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4293559748179030}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &1043227458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649708466534097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e534490a6aba36a4d917a64df1a37a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouching: 0
+  saber:
+  - {fileID: 4839406578464816}
+  powerUp: {fileID: 0}
+  speed: 6
 --- !u!1 &1659614884411940
 GameObject:
   m_ObjectHideFlags: 0

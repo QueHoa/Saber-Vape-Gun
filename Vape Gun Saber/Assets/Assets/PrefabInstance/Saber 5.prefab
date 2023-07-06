@@ -2327,6 +2327,7 @@ GameObject:
   - component: {fileID: 4832072354710735}
   - component: {fileID: 33297027494587058}
   - component: {fileID: 23620362141532651}
+  - component: {fileID: 1140555879}
   m_Layer: 0
   m_Name: saber5.light.002
   m_TagString: Untagged
@@ -2399,6 +2400,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1140555879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184986495562074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3369c938b31d6ce4f8553a20b0a1e33e, type: 2}
 --- !u!1 &1187506329183651
 GameObject:
   m_ObjectHideFlags: 0
@@ -11674,6 +11692,7 @@ GameObject:
   - component: {fileID: 4707438872550362}
   - component: {fileID: 33850846560438464}
   - component: {fileID: 23513837323439563}
+  - component: {fileID: 1164110532}
   m_Layer: 0
   m_Name: saber_light
   m_TagString: Untagged
@@ -11746,6 +11765,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1164110532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497829346791671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 35742e27b4c8bce42a7995afd23e9b24, type: 2}
 --- !u!1 &1589845187444379
 GameObject:
   m_ObjectHideFlags: 0
@@ -11787,6 +11823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798615302338110}
+  - component: {fileID: 955650793}
   m_Layer: 5
   m_Name: Saber 5
   m_TagString: Untagged
@@ -11803,13 +11840,33 @@ Transform:
   m_GameObject: {fileID: 1640857811454628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1250}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4194832025160986}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &955650793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640857811454628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e534490a6aba36a4d917a64df1a37a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouching: 0
+  saber:
+  - {fileID: 4707438872550362}
+  - {fileID: 4982542879774721}
+  - {fileID: 4832072354710735}
+  powerUp: {fileID: 0}
+  gameController: {fileID: 0}
+  speed: 6
 --- !u!1 &1643967470541053
 GameObject:
   m_ObjectHideFlags: 0
@@ -18908,6 +18965,7 @@ GameObject:
   - component: {fileID: 4982542879774721}
   - component: {fileID: 33298813402572067}
   - component: {fileID: 23852503716205240}
+  - component: {fileID: 1083303293}
   m_Layer: 0
   m_Name: saber5.light.002
   m_TagString: Untagged
@@ -18980,6 +19038,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1083303293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925330529130801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 232a0b3ee84a42a4ea27a28348a13942, type: 2}
 --- !u!1 &1936293914406060
 GameObject:
   m_ObjectHideFlags: 0

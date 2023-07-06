@@ -13995,6 +13995,7 @@ GameObject:
   - component: {fileID: 4911831597294681}
   - component: {fileID: 33791142235507301}
   - component: {fileID: 23822579673953364}
+  - component: {fileID: 229320038}
   m_Layer: 0
   m_Name: saber_light
   m_TagString: Untagged
@@ -14067,6 +14068,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &229320038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429235737832754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 03ef703b3a0578c4cb6cff1bada46671, type: 2}
 --- !u!1 &1537266385049316
 GameObject:
   m_ObjectHideFlags: 0
@@ -16384,13 +16402,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4692675564229650}
+  - component: {fileID: 609754588}
   m_Layer: 5
   m_Name: Saber 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4692675564229650
 Transform:
   m_ObjectHideFlags: 0
@@ -16400,13 +16419,30 @@ Transform:
   m_GameObject: {fileID: 1543654568903799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1250}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4678253627220369}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &609754588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543654568903799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e534490a6aba36a4d917a64df1a37a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouching: 0
+  saber:
+  - {fileID: 4911831597294681}
+  powerUp: {fileID: 0}
+  speed: 6
 --- !u!1 &1760027957778038
 GameObject:
   m_ObjectHideFlags: 0
