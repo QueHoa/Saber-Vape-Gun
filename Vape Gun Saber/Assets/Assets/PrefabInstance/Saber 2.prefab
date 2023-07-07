@@ -18558,7 +18558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4484439243563877
 Transform:
   m_ObjectHideFlags: 0
@@ -18587,9 +18587,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e534490a6aba36a4d917a64df1a37a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTouching: 0
-  saber:
+  longSaber:
   - {fileID: 4013206072851467}
+  isTouching: 0
+  isPower: 0
   powerUp: {fileID: 0}
   gameController: {fileID: 0}
   speed: 6
@@ -18621,7 +18622,7 @@ Transform:
   m_GameObject: {fileID: 1742271400950469}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4394983039636013}

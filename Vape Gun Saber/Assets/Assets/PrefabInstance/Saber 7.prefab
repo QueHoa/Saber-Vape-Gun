@@ -9415,10 +9415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e534490a6aba36a4d917a64df1a37a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTouching: 0
-  saber:
+  longSaber:
   - {fileID: 4432852432910172}
+  isTouching: 0
+  isPower: 0
   powerUp: {fileID: 0}
+  gameController: {fileID: 0}
   speed: 6
 --- !u!1 &1670212951831874
 GameObject:

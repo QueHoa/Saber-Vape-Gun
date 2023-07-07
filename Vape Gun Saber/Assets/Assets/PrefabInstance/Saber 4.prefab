@@ -13976,7 +13976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4082417731401167
 Transform:
   m_ObjectHideFlags: 0
@@ -14005,10 +14005,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e534490a6aba36a4d917a64df1a37a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTouching: 0
-  saber:
+  longSaber:
   - {fileID: 4802832907662653}
   - {fileID: 4680387689053143}
+  isTouching: 0
+  isPower: 0
   powerUp: {fileID: 0}
   gameController: {fileID: 0}
   speed: 6
