@@ -47,11 +47,11 @@ public class SaberPlay : MonoBehaviour
             {                
                 return;
             }
-            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began || gameController.is3D)
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began || gameController.is3D || gameController.isColor)
             {
                 isTouching = true;
             }                 
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled || gameController.is3D)
+            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled || gameController.is3D || gameController.isColor)
             {
                 isTouching = false;
             }

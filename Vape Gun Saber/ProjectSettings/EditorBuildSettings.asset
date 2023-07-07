@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/LightSacber/SelectSaber.unity
+    guid: 95c600a7d06f58345b36afbc1fb4902f
+  - enabled: 1
     path: Assets/LightSacber/LightSaber.unity
     guid: 7c33d6af613b4b242884f9e51d13acd8
   m_configObjects: {}
