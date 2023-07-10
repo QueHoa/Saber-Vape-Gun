@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class GameController : MonoBehaviour
+public class SaberController : MonoBehaviour
 {   
     [HideInInspector]public bool is3D = false;
     [HideInInspector] public bool isColor = false;

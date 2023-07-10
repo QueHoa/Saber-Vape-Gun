@@ -6,18 +6,26 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 
 public class SaberPlay : MonoBehaviour
-{    
-    public Transform[] longSaber;   
+{
+    public Transform[] longSaber;
     public bool isTouching = false;
     public bool isPower = false;
+    [Header("Color")]
+    public Material[] colorSaber;
+    public Slider colorSlider; // Reference đến UI Slider   
+    [SerializeField]
+    private float r;
+    [SerializeField]
+    private float g;
+    [SerializeField]
+    private float b;
 
-    private Vector3 saberPosition = new Vector3(0, -0.8f, 9);
     [SerializeField] 
     private Image powerUp;
     [SerializeField]
-    private GameController gameController;
+    private SaberController saberController;
     [SerializeField]
-    private float speed;
+    private float speed;    
     private float lengthSword;
     private Vector2 startTouchPosition;
 
@@ -28,6 +36,7 @@ public class SaberPlay : MonoBehaviour
         {
             longSaber[i].localScale = new Vector3(0, 0, 0);
         }
+        colorSlider.onValueChanged.AddListener(OnColorChanged);
     }
     private void OnEnable()
     {
@@ -47,15 +56,15 @@ public class SaberPlay : MonoBehaviour
             {                
                 return;
             }
-            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began || gameController.is3D || gameController.isColor)
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began || saberController.is3D || saberController.isColor)
             {
                 isTouching = true;
             }                 
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled || gameController.is3D || gameController.isColor)
+            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled || saberController.is3D || saberController.isColor)
             {
                 isTouching = false;
             }
-            if (gameController.is3D)
+            if (saberController.is3D)
             {
                 if (touch.phase == TouchPhase.Began)
                 {
@@ -71,9 +80,13 @@ public class SaberPlay : MonoBehaviour
 
                     transform.Rotate(rotationX, rotationY, 0);
                 }
-            }            
+            }
+            if (saberController.isColor)
+            {
+                
+            }          
         }        
-        if (!gameController.is3D)
+        if (!saberController.is3D)
         {
             if (isTouching && !isPower)
             {
@@ -129,5 +142,38 @@ public class SaberPlay : MonoBehaviour
     {
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);            
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 400);       
-    }       
+    }
+    void OnColorChanged(float value)
+    {
+
+        if (value * 6 <= 1)
+        {
+            b = value * 6;
+        }
+        else if (value * 6 <= 2)
+        {
+            r = 2 - value * 6;
+        }
+        else if (value * 6 <= 3)
+        {
+            g = value * 6 - 2;
+        }
+        else if (value * 6 <= 4)
+        {
+            b = 4 - value * 6;
+        }
+        else if (value * 6 <= 5)
+        {
+            r = value * 6 - 4;
+        }
+        else
+        {
+            g = 6 - value * 6;
+        }
+        Color newColor = new Color(r, g, b); // Thay đổi thành các giá trị R, G, B tương ứng
+        for (int i = 0; i < colorSaber.Length; i++)
+        {
+            colorSaber[i].color = newColor;
+        }
+    }
 }

@@ -22,10 +22,10 @@ public class SceneLoading : MonoBehaviour
     IEnumerator LoadingOut(string scene)
     {
         float time = 0;
-        while (time < 0.2f)
+        while (time < 0.8f)
         {
             time += Time.deltaTime;
-            Load.Rotate(Vector3.up, Time.deltaTime);
+            Load.Rotate(Vector3.back, Time.deltaTime * 200);
             yield return 0;
         }
 
