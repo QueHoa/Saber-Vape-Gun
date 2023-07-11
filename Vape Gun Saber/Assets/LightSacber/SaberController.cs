@@ -7,8 +7,10 @@ using DG.Tweening;
 
 public class SaberController : MonoBehaviour
 {   
-    [HideInInspector]public bool is3D = false;
-    [HideInInspector] public bool isColor = false;
+    [HideInInspector]
+    public bool is3D = false;
+    [HideInInspector] 
+    public bool isColor = false;
     private bool isZoom = false;
     private bool isSaber = false;
     private bool isGround = false;
@@ -16,7 +18,16 @@ public class SaberController : MonoBehaviour
     private int numSaber;
     private int numGround;
 
-    [SerializeField]private FlashlightPlugin flash;
+    [SerializeField]
+    private FlashlightPlugin flash;
+    [SerializeField]
+    private SceneLoading loading;
+    [SerializeField]
+    private GameObject setting;   
+    [SerializeField]
+    private GameObject noInter;
+    [SerializeField]
+    private Image powerUp;
     public GameObject[] saber;
     public GameObject[] background;
     public GameObject[] icon;       
@@ -28,6 +39,18 @@ public class SaberController : MonoBehaviour
         numGround = 0;
         saber[numSaber].SetActive(true);
         background[numGround].SetActive(true);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Join(icon[0].transform.DOMoveY(52, 0.3f)).SetEase(Ease.OutBack);
+        for (int i = 6; i < 9; i++)
+        {
+            sequence.Join(icon[i].transform.DOMoveX(-23, 0.4f)).SetEase(Ease.OutBack);
+        }
+        sequence.Join(icon[5].transform.DOMoveX(-16, 0.4f)).SetEase(Ease.OutBack);
+        for (int i = 1; i < 5; i++)
+        {
+            sequence.Join(icon[i].transform.DOMoveX(23, 0.4f)).SetEase(Ease.OutBack);
+        }
+        sequence.Play();
     }
 
     // Update is called once per frame
@@ -40,7 +63,7 @@ public class SaberController : MonoBehaviour
         else
         {
             flash.TurnOff();
-        }
+        }                     
     }
     public void Set3D()
     {
@@ -49,12 +72,12 @@ public class SaberController : MonoBehaviour
         {
             for (int i = 6; i < 9; i++)
             {
-                sequence.Join(icon[i].transform.DOMoveX(-32, 0.4f));
+                sequence.Join(icon[i].transform.DOMoveX(-50, 0.4f));
             }
-            sequence.Join(icon[5].transform.DOMoveX(-39, 0.4f));
+            sequence.Join(icon[5].transform.DOMoveX(-55, 0.4f));
             for (int i = 1; i < 5; i++)
             {
-                sequence.Join(icon[i].transform.DOMoveX(32, 0.4f)).SetEase(Ease.OutBack);
+                sequence.Join(icon[i].transform.DOMoveX(50, 0.4f)).SetEase(Ease.OutBack);
             }            
             sequence.Play();
         }
@@ -81,13 +104,13 @@ public class SaberController : MonoBehaviour
         {
             for (int i = 6; i < 9; i++)
             {
-                sequence.Join(icon[i].transform.DOMoveX(-32, 0.3f));
+                sequence.Join(icon[i].transform.DOMoveX(-50, 0.3f));
             }
-            sequence.Join(icon[5].transform.DOMoveX(-39, 0.3f));
-            sequence.Join(icon[0].transform.DOMoveY(64, 0.3f));
-            sequence.Join(icon[1].transform.DOMoveX(32, 0.3f));
-            sequence.Join(icon[3].transform.DOMoveX(32, 0.3f));
-            sequence.Join(icon[4].transform.DOMoveX(32, 0.3f));
+            sequence.Join(icon[5].transform.DOMoveX(-55, 0.3f));
+            sequence.Join(icon[0].transform.DOMoveY(80, 0.3f));
+            sequence.Join(icon[1].transform.DOMoveX(50, 0.3f));
+            sequence.Join(icon[3].transform.DOMoveX(50, 0.3f));
+            sequence.Join(icon[4].transform.DOMoveX(50, 0.3f));
             sequence.Play();
             saber[numSaber].transform.DOMoveZ(6, 0.6f).SetEase(Ease.OutBack);
         }
@@ -103,7 +126,7 @@ public class SaberController : MonoBehaviour
             sequence.Join(icon[3].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
             sequence.Join(icon[4].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
             sequence.Play();
-            saber[numSaber].transform.DOMoveZ(9, 0.5f);
+            saber[numSaber].transform.DOMoveZ(9, 0.3f);
         }
         isZoom = !isZoom;
     }
@@ -111,37 +134,53 @@ public class SaberController : MonoBehaviour
     {
         if (isColor)
         {
-            icon[9].transform.DOMoveX(32, 0.3f);
+            icon[9].transform.DOMoveX(65, 0.3f);
         }
         else
         {
             icon[9].transform.DOMoveX(23, 0.5f).SetEase(Ease.OutBack);
         }
         isColor = !isColor;
+        if (isSaber) setSaber();
     }
     public void setSaber()
     {
         if (isSaber)
         {
-            icon[10].transform.DOMoveX(35, 0.3f);
+            icon[10].transform.DOMoveX(60, 0.3f);
         }
         else
         {
             icon[10].transform.DOMoveX(22, 0.3f).SetEase(Ease.OutBack);
-        }
+        }        
         isSaber = !isSaber;
+        if (isColor) setColor();
     }
     public void setGround()
     {
         if (isGround)
         {
-            icon[11].transform.DOMoveX(-35, 0.3f);
+            icon[11].transform.DOMoveX(-50, 0.3f);
         }
         else
         {
             icon[11].transform.DOMoveX(-22, 0.3f).SetEase(Ease.OutBack);
         }
         isGround = !isGround;
+    }
+    public void SetSetting()
+    {
+        Debug.Log("hehe");
+        setting.SetActive(true);
+    }
+    public void SetEnergy()
+    {
+        noInter.SetActive(true);
+    }
+    public void SetBack()
+    {
+        loading.gameObject.SetActive(true);
+        loading.LoadingTo("SelectSaber");
     }
     public void ChangeSaber(int change)
     {

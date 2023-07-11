@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class SaberPlay : MonoBehaviour
 {
-    public Transform[] longSaber;
+    public GameObject[] longSaber;
     public bool isTouching = false;
     public bool isPower = false;
-    [Header("Color")]
-    public Material[] colorSaber;
-    public Slider colorSlider; // Reference đến UI Slider   
+    public VolumeProfile[] colorSaber;
+    public Slider colorSlider; // Reference đến UI Slider
     [SerializeField]
     private float r;
     [SerializeField]
@@ -20,8 +21,10 @@ public class SaberPlay : MonoBehaviour
     [SerializeField]
     private float b;
 
-    [SerializeField] 
+    [SerializeField]
     private Image powerUp;
+    [SerializeField]
+    private GameObject noEnergy;
     [SerializeField]
     private SaberController saberController;
     [SerializeField]
@@ -34,7 +37,7 @@ public class SaberPlay : MonoBehaviour
         powerUp.fillAmount = 1;
         for (int i = 0; i < longSaber.Length; i++)
         {
-            longSaber[i].localScale = new Vector3(0, 0, 0);
+            longSaber[i].transform.localScale = new Vector3(0, 0, 0);
         }
         colorSlider.onValueChanged.AddListener(OnColorChanged);
     }
@@ -80,11 +83,7 @@ public class SaberPlay : MonoBehaviour
 
                     transform.Rotate(rotationX, rotationY, 0);
                 }
-            }
-            if (saberController.isColor)
-            {
-                
-            }          
+            }                      
         }        
         if (!saberController.is3D)
         {
@@ -92,9 +91,9 @@ public class SaberPlay : MonoBehaviour
             {
                 if (lengthSword < 1) lengthSword += Time.deltaTime * speed;
                 if (lengthSword > 1) lengthSword = 1;
-                powerUp.fillAmount -= Time.deltaTime * 0.12f;
+                powerUp.fillAmount -= Time.deltaTime * 0.1f;
             }
-            if(!isTouching)
+            else
             {
                 if (lengthSword > 0) lengthSword -= Time.deltaTime * speed;
                 if (lengthSword < 0) lengthSword = 0;
@@ -106,35 +105,35 @@ public class SaberPlay : MonoBehaviour
             if (lengthSword < 1) lengthSword += Time.deltaTime * speed;
             if (lengthSword > 1) lengthSword = 1;
         }
-        if (powerUp.fillAmount <= 0)
-        {
-            isPower = true;           
+        if (powerUp.fillAmount == 0)
+        {           
+            noEnergy.SetActive(true);
+            powerUp.fillAmount += Time.deltaTime * 0.1f;
+            isPower = true;
+            saberController.setColor();
         }
-        if (isPower)
+        if (isPower && !noEnergy.activeInHierarchy)
         {
             if (powerUp.fillAmount < 1) powerUp.fillAmount += Time.deltaTime;
             else
             {
                 powerUp.fillAmount = 1;
+                isPower = false;
             }
-        }
-        if(powerUp.fillAmount == 1)
-        {
-            isPower = false;
-        }
+        }        
         if (longSaber.Length >= 3)
         {
-            longSaber[0].localScale = new Vector3(1, 1, lengthSword);
+            longSaber[0].transform.localScale = new Vector3(1, 1, lengthSword);
             for (int i = 1; i < longSaber.Length; i++)
             {
-                longSaber[i].localScale = new Vector3(1, lengthSword, 1);
+                longSaber[i].transform.localScale = new Vector3(1, lengthSword, 1);
             }
         }
         else
         {
             for (int i = 0; i < longSaber.Length; i++)
             {
-                longSaber[i].localScale = new Vector3(1, 1, lengthSword);
+                longSaber[i].transform.localScale = new Vector3(1, 1, lengthSword);
             }
         }       
     }
@@ -145,7 +144,6 @@ public class SaberPlay : MonoBehaviour
     }
     void OnColorChanged(float value)
     {
-
         if (value * 6 <= 1)
         {
             b = value * 6;
@@ -170,10 +168,18 @@ public class SaberPlay : MonoBehaviour
         {
             g = 6 - value * 6;
         }
-        Color newColor = new Color(r, g, b); // Thay đổi thành các giá trị R, G, B tương ứng
+        Color newColor = new Color(r, g, b);
+        ChangeBloomColor(newColor);
+    }
+    private void ChangeBloomColor(Color color)
+    {
         for (int i = 0; i < colorSaber.Length; i++)
         {
-            colorSaber[i].color = newColor;
+            Bloom bloom;
+            if (colorSaber[i].TryGet<Bloom>(out bloom))
+            {
+                bloom.tint.value = color;
+            }
         }
     }
 }

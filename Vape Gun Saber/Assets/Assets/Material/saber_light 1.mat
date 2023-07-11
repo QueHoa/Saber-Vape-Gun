@@ -174,10 +174,10 @@ Material:
     - _linelength: 0.1
     - _noisescale: 30
     m_Colors:
-    - _BaseColor: {r: 0.049908876, g: 0.022034407, b: 0.9707775, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 63.999992, g: 63.999992, b: 63.999992, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Vector2: {r: -2.54, g: -2.97, b: 0, a: 0}
     - _dissolvecolor: {r: 0.9622641, g: 0.36765748, b: 0.36765748, a: 0}

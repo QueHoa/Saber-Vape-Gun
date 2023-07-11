@@ -126,9 +126,9 @@ Material:
     - _dissolveamount: 0
     - _linelength: 0.01
     m_Colors:
-    - _BaseColor: {r: 1, g: 0, b: 0.092895985, a: 1}
-    - _Color: {r: 1, g: 0, b: 0.09289596, a: 1}
-    - _EmissionColor: {r: 23.955498, g: 23.955498, b: 23.955498, a: 24.251463}
+    - _BaseColor: {r: 0.6556604, g: 1, b: 0.96275854, a: 1}
+    - _Color: {r: 0.6556604, g: 1, b: 0.9627585, a: 1}
+    - _EmissionColor: {r: 31.98247, g: 31.98247, b: 31.98247, a: 24.251463}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _dissolvecolor: {r: 0.9622641, g: 0.36765748, b: 0.36765748, a: 0}
   m_BuildTextureStacks: []

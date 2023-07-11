@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Assets/Scene/Splash.unity
+    guid: 98445083d4f230e458e501fb3b8911ac
+  - enabled: 1
+    path: Assets/Assets/Scene/MasterLevel.unity
+    guid: 01015ba5dfbb11a46954bb4bcedb3320
+  - enabled: 1
     path: Assets/LightSacber/SelectSaber.unity
     guid: 95c600a7d06f58345b36afbc1fb4902f
   - enabled: 1
