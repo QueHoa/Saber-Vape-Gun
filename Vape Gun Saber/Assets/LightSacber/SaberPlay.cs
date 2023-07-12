@@ -9,6 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 public class SaberPlay : MonoBehaviour
 {
+    public float rotateSpeed;
     public GameObject[] longSaber;
     public bool isTouching = false;
     public bool isPower = false;
@@ -78,10 +79,17 @@ public class SaberPlay : MonoBehaviour
                     Vector2 currentTouchPosition = touch.position;
                     Vector2 touchDelta = currentTouchPosition - startTouchPosition;
 
-                    float rotationX = -touchDelta.y * 0.01f;
-                    float rotationY = touchDelta.x * 0.01f;
+                    float rotationX = -touchDelta.y * rotateSpeed * Time.deltaTime;
+                    float rotationY = touchDelta.x * rotateSpeed * Time.deltaTime;
+                    float rotationZ = 0f;
 
-                    transform.Rotate(rotationX, rotationY, 0);
+                    transform.Rotate(rotationX, rotationY, rotationZ, Space.World);
+
+                    startTouchPosition = currentTouchPosition;
+                }
+                if(touch.phase == TouchPhase.Ended)
+                {
+
                 }
             }                      
         }        

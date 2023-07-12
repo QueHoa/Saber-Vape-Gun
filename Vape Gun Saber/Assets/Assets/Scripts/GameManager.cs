@@ -31,4 +31,9 @@ public class GameManager : MonoBehaviour
         loading.gameObject.SetActive(true);
         loading.LoadingTo("SelectSaber");
     }
+    public void MachineGun()
+    {
+        loading.gameObject.SetActive(true);
+        loading.LoadingTo("SelectGun");
+    }
 }
