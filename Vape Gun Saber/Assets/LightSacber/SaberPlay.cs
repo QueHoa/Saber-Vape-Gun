@@ -15,13 +15,13 @@ public class SaberPlay : MonoBehaviour
     public bool isPower = false;
     public VolumeProfile[] colorSaber;
     public Slider colorSlider; // Reference đến UI Slider
+
     [SerializeField]
     private float r;
     [SerializeField]
     private float g;
     [SerializeField]
     private float b;
-
     [SerializeField]
     private Image powerUp;
     [SerializeField]
@@ -29,12 +29,13 @@ public class SaberPlay : MonoBehaviour
     [SerializeField]
     private SaberController saberController;
     [SerializeField]
-    private float speed;    
+    private float speed;
+    
     private float lengthSword;
     private Vector2 startTouchPosition;
 
     void Start()
-    {
+    {       
         powerUp.fillAmount = 1;
         for (int i = 0; i < longSaber.Length; i++)
         {
@@ -99,7 +100,7 @@ public class SaberPlay : MonoBehaviour
             {
                 if (lengthSword < 1) lengthSword += Time.deltaTime * speed;
                 if (lengthSword > 1) lengthSword = 1;
-                powerUp.fillAmount -= Time.deltaTime * 0.1f;
+                powerUp.fillAmount -= Time.deltaTime * 0.1f;                
             }
             else
             {

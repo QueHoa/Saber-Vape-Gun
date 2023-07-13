@@ -54,7 +54,7 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gun[numGun].GetComponent<SaberPlay>().isTouching)
+        if (gun[numGun].GetComponent<GunPlay>().isShooting)
         {
             flash.TurnOn();
         }
@@ -75,7 +75,7 @@ public class GunController : MonoBehaviour
             sequence.Join(icon[5].transform.DOMoveX(-55, 0.4f));
             for (int i = 1; i < 5; i++)
             {
-                sequence.Join(icon[i].transform.DOMoveX(50, 0.4f)).SetEase(Ease.OutBack);
+                sequence.Join(icon[i].transform.DOMoveX(50, 0.4f));
             }            
             sequence.Play();
         }
@@ -132,11 +132,11 @@ public class GunController : MonoBehaviour
     {
         if (isGun)
         {
-            icon[10].transform.DOMoveX(60, 0.3f);
+            icon[10].transform.DOMoveX(-60, 0.3f);
         }
         else
         {
-            icon[10].transform.DOMoveX(22, 0.3f).SetEase(Ease.OutBack);
+            icon[10].transform.DOMoveX(-22, 0.3f).SetEase(Ease.OutBack);
         }        
         isGun = !isGun;
     }
@@ -144,11 +144,11 @@ public class GunController : MonoBehaviour
     {
         if (isGround)
         {
-            icon[11].transform.DOMoveX(-50, 0.3f);
+            icon[9].transform.DOMoveX(60, 0.3f);
         }
         else
         {
-            icon[11].transform.DOMoveX(-22, 0.3f).SetEase(Ease.OutBack);
+            icon[9].transform.DOMoveX(22, 0.3f).SetEase(Ease.OutBack);
         }
         isGround = !isGround;
     }
@@ -157,14 +157,14 @@ public class GunController : MonoBehaviour
         Debug.Log("hehe");
         setting.SetActive(true);
     }
-    public void SetEnergy()
+    public void SetBullet()
     {
         noInter.SetActive(true);
     }
     public void SetBack()
     {
         loading.gameObject.SetActive(true);
-        loading.LoadingTo("SelectSaber");
+        loading.LoadingTo("SelectGun");
     }
     public void ChangeGun(int change)
     {

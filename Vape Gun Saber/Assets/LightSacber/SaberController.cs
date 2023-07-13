@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class SaberController : MonoBehaviour
 {   
@@ -17,6 +18,10 @@ public class SaberController : MonoBehaviour
     
     private int numSaber;
     private int numGround;
+    public float shakeThreshold = 2.0f;
+    private bool shakeDetected = false;
+    public HapticTypes hapticTypes = HapticTypes.HeavyImpact;
+    private bool hapticsAllowed = true;
 
     [SerializeField]
     private FlashlightPlugin flash;
@@ -35,6 +40,7 @@ public class SaberController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MMVibrationManager.SetHapticsActive(hapticsAllowed);
         numSaber = PlayerPrefs.GetInt("SaberSelector");
         numGround = 0;
         saber[numSaber].SetActive(true);
@@ -63,7 +69,23 @@ public class SaberController : MonoBehaviour
         else
         {
             flash.TurnOff();
-        }                     
+        }
+        if (Input.accelerationEventCount > 0)
+        {
+            Vector3 acceleration = Input.acceleration;
+            float totalAcceleration = acceleration.magnitude;
+            if (totalAcceleration > shakeThreshold)
+            {
+                shakeDetected = true;
+                flash.TurnOff();
+            }
+        }
+        if (shakeDetected)
+        {
+            flash.TurnOn();
+            MMVibrationManager.Haptic(hapticTypes, true, true, this);
+            shakeDetected = false;
+        }
     }
     public void Set3D()
     {
@@ -77,7 +99,7 @@ public class SaberController : MonoBehaviour
             sequence.Join(icon[5].transform.DOMoveX(-55, 0.4f));
             for (int i = 1; i < 5; i++)
             {
-                sequence.Join(icon[i].transform.DOMoveX(50, 0.4f)).SetEase(Ease.OutBack);
+                sequence.Join(icon[i].transform.DOMoveX(50, 0.4f));
             }            
             sequence.Play();
         }

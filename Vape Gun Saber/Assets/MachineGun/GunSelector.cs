@@ -21,10 +21,10 @@ public class GunSelector : MonoBehaviour
     {
         
     }
-    public void Select(int numSaber)
+    public void Select(int numGun)
     {
         loading.gameObject.SetActive(true);
-        PlayerPrefs.SetInt("GunSelector", numSaber);
+        PlayerPrefs.SetInt("GunSelector", numGun);
         loading.LoadingTo("MachineGun");
     }
     public void SetBack()
