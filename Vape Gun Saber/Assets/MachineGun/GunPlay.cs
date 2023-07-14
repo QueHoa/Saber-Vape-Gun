@@ -12,11 +12,19 @@ public class GunPlay : MonoBehaviour
     public bool isShooting = false;
 
     [SerializeField]
+    private GameObject shootEffect;
+    [SerializeField]
+    private Transform shootTran;
+    [SerializeField]
+    private Vector3 rotationEffect = new Vector3();
+    [SerializeField]
+    private float rotateSpeed;
+    [SerializeField]
     private float shootCooldown;
     [SerializeField]
     private float reloadTime;
     [SerializeField]
-    private int numBullet = 0;
+    private int chamber = 0;
     [SerializeField]
     private Text bullet;
     [SerializeField]
@@ -25,7 +33,7 @@ public class GunPlay : MonoBehaviour
     private GunController gunController;
     [SerializeField]
     private Animator anim;
-    private int chamber;
+    private int numBullet;
     private float defaultTime;
     private float cooldownTimer = Mathf.Infinity;
     private Vector2 startTouchPosition;
@@ -38,7 +46,7 @@ public class GunPlay : MonoBehaviour
     {
         transform.position = new Vector3(0, 0, 13);
         transform.DOMoveZ(9, 0.5f).SetEase(Ease.OutBack);
-        chamber = numBullet;
+        numBullet = chamber;
         defaultTime = shootCooldown;
     }
     // Update is called once per frame
@@ -51,25 +59,53 @@ public class GunPlay : MonoBehaviour
             {
                 return;
             }
-            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began || gunController.is3D)
             {
                 isTouching = true;
             }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled || gunController.is3D)
             {
                 isTouching = false;
             }
+            if (gunController.is3D)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    startTouchPosition = touch.position;
+                }
+                else if (touch.phase == TouchPhase.Moved)
+                {
+                    Vector2 currentTouchPosition = touch.position;
+                    Vector2 touchDelta = currentTouchPosition - startTouchPosition;
+
+                    float rotationX = -touchDelta.y * rotateSpeed * Time.deltaTime;
+                    float rotationY = touchDelta.x * rotateSpeed * Time.deltaTime;
+                    float rotationZ = 0f;
+
+                    transform.Rotate(rotationX, rotationY, rotationZ, Space.World);
+
+                    startTouchPosition = currentTouchPosition;
+                }
+                if (touch.phase == TouchPhase.Ended)
+                {
+
+                }
+            }            
         }
-        if (isTouching && cooldownTimer >= shootCooldown)
+        if (!gunController.is3D)
         {
-            Shoot();
-        }
+            if (isTouching && cooldownTimer >= shootCooldown && numBullet != 0)
+            {
+                Shoot();
+            }
+            ResetRotate();
+        }       
         bullet.text = numBullet.ToString();
         /*if (numBullet == 0 && !isReload )
         {
             StartCoroutine(NoBullet());
         }*/
-        if (!noBullet.activeInHierarchy && shootCooldown == Mathf.Infinity)
+        if (!noBullet.activeInHierarchy && shootCooldown == Mathf.Infinity && isReload)
         {
             StartCoroutine(Reload());           
         }
@@ -79,18 +115,23 @@ public class GunPlay : MonoBehaviour
     {
         isShooting = true;
         cooldownTimer = 0;
+        GameObject effect = (GameObject)Instantiate(shootEffect, shootTran.position, Quaternion.Euler(rotationEffect));
+        Destroy(effect, defaultTime);
         anim.SetTrigger("shoot");        
-        numBullet--;      
-        if(numBullet == 0 && !isReload)
-        {
-            shootCooldown = Mathf.Infinity;
-            StartCoroutine(NoBullet());
-        }   
+        numBullet--;                
         isShooting = false;
+        if (numBullet == 0 && !isReload)
+        {           
+            StartCoroutine(NoBullet());
+        }
+    }
+    private void ResetRotate()
+    {
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 400);
     }
     IEnumerator Reload()
     {
-        Debug.Log("hehe");
         shootCooldown = defaultTime;
         anim.SetTrigger("reload");
         yield return new WaitForSeconds(reloadTime);        
@@ -100,7 +141,8 @@ public class GunPlay : MonoBehaviour
     }   
     IEnumerator NoBullet()
     {
-        yield return new WaitForSeconds(defaultTime);
+        shootCooldown = Mathf.Infinity;
+        yield return new WaitForSeconds(defaultTime);       
         noBullet.SetActive(true);
         isReload = true;
 

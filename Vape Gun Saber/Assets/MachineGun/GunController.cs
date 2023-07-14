@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class GunController : MonoBehaviour
 {   
@@ -15,6 +16,9 @@ public class GunController : MonoBehaviour
     
     private int numGun;
     private int numGround;
+    public HapticTypes hapticTypes = HapticTypes.HeavyImpact;
+    private bool hapticsAllowed = true;
+    private bool shakeDetected = false;
 
     [SerializeField]
     private FlashlightPlugin flash;
@@ -33,6 +37,8 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
+        MMVibrationManager.SetHapticsActive(hapticsAllowed);
         numGun = PlayerPrefs.GetInt("GunSelector");
         numGround = 0;
         gun[numGun].SetActive(true);
@@ -56,10 +62,10 @@ public class GunController : MonoBehaviour
     {
         if (gun[numGun].GetComponent<GunPlay>().isShooting)
         {
-            flash.TurnOn();
+            flash.TurnOn();           
         }
         else
-        {
+        {            
             flash.TurnOff();
         }                     
     }

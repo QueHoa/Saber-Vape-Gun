@@ -22,6 +22,7 @@ public class SaberPlay : MonoBehaviour
     private float g;
     [SerializeField]
     private float b;
+
     [SerializeField]
     private Image powerUp;
     [SerializeField]
@@ -100,7 +101,7 @@ public class SaberPlay : MonoBehaviour
             {
                 if (lengthSword < 1) lengthSword += Time.deltaTime * speed;
                 if (lengthSword > 1) lengthSword = 1;
-                powerUp.fillAmount -= Time.deltaTime * 0.1f;                
+                powerUp.fillAmount -= Time.deltaTime * 0.1f;
             }
             else
             {

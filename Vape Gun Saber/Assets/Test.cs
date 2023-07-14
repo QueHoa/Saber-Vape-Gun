@@ -19,8 +19,8 @@ public class Test : MonoBehaviour
     {
         
     }
-    public void Move()
+    public void Instance()
     {
-        targetObject.transform.DOMoveX(1.2f, 0.5f).SetEase(Ease.OutBack);
+        GameObject effect = (GameObject)Instantiate(targetObject, transform.position, transform.rotation);
     }
 }
