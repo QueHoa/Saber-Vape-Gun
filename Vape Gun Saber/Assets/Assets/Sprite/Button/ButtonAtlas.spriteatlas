@@ -51,10 +51,12 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 38c27b307dce97d45946b34d2e98b35e, type: 2}
+  - {fileID: 21300000, guid: d0357290152696742ac5c766e6f4646f, type: 2}
   - {fileID: 21300000, guid: d9c173217295c0a4798d8f267284a78c, type: 2}
   - {fileID: 21300000, guid: 919cff5105cfbc74f80153f4d148dda7, type: 2}
   - {fileID: 21300000, guid: 4d328dc2e1fdb784e9f482bea604d88a, type: 2}
   - {fileID: 21300000, guid: 8146d902913804f489a4778ba1a0f431, type: 2}
+  - {fileID: 21300000, guid: 7df239329f5df454c93ce436734db856, type: 2}
   - {fileID: 21300000, guid: 303230e2caff2e04e9753aa253072daf, type: 2}
   - {fileID: 21300000, guid: 0436c545153421947b584c25c33e406f, type: 2}
   - {fileID: 21300000, guid: d0c9e7465de4ab247ad34562c125c597, type: 2}
@@ -63,11 +65,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3e333452a132acc4781d0c276a657759, type: 2}
   - {fileID: 21300000, guid: 3fe107f15ade52747bf6fd66f0d6c370, type: 2}
   - {fileID: 21300000, guid: 10007792f1503f94083bf382002c4814, type: 2}
+  - {fileID: 21300000, guid: 05c4a623267a7594f8d337a20a71e83d, type: 2}
   - {fileID: 21300000, guid: bd3a7de98959b0a489c75c6f3d26bcb2, type: 2}
   - {fileID: 21300000, guid: cc8dee29a2f45344ba44fde6907b4686, type: 2}
   - {fileID: 21300000, guid: 030ccb583c2991843bbb590325abf921, type: 2}
   - {fileID: 21300000, guid: 1ebea078ac290c64dae6e7524a18a339, type: 2}
   - {fileID: 21300000, guid: 6972468304998214eabbec5c36f55da2, type: 2}
+  - {fileID: 21300000, guid: 00d37ca212025d3498270710c6e5a699, type: 2}
   - {fileID: 21300000, guid: fefcfcb48fd940d4095a0f6872d73783, type: 2}
   - {fileID: 21300000, guid: 6c795706368f1bb48b75b023fb2a9412, type: 2}
   - {fileID: 21300000, guid: f2a8c13631d0d1641b49ed7c95e4bd9c, type: 2}
@@ -75,15 +79,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c8e66e0a02d22964988ea0eb56d2dcf1, type: 2}
   - {fileID: 21300000, guid: bc5d33df01ae858488824eb5e92695fb, type: 2}
   - {fileID: 21300000, guid: 9e12bf5b9c067a44bbc482dfb6871d02, type: 2}
+  - {fileID: 21300000, guid: c2d1e93377f839f409237a93d0a87515, type: 2}
   - {fileID: 21300000, guid: 884c4a0b716d5bd4f86e375be5b49d44, type: 2}
   - {fileID: 21300000, guid: f4d48011ff2d7eb4f9ef07348f827766, type: 2}
   - {fileID: 21300000, guid: 3ea30043a9ab9274395ad2843520bf5b, type: 2}
   - {fileID: 21300000, guid: e1b85453d93a55c40981a8dbdb658c53, type: 2}
-  - {fileID: 21300000, guid: 9841d25052e007e4d9fb5a53f0fb67e5, type: 2}
-  - {fileID: 21300000, guid: 7df239329f5df454c93ce436734db856, type: 2}
-  - {fileID: 21300000, guid: 00d37ca212025d3498270710c6e5a699, type: 2}
-  - {fileID: 21300000, guid: 05c4a623267a7594f8d337a20a71e83d, type: 2}
-  - {fileID: 21300000, guid: c2d1e93377f839f409237a93d0a87515, type: 2}
+  - {fileID: 21300000, guid: ea2b40d3d26291c4b8dd729eebab494d, type: 2}
   - {fileID: 21300000, guid: d9d136d56d3e21f4f9008d851edbe3a6, type: 2}
   - {fileID: 21300000, guid: d382c8e7fcef23e40ac14630c69d9d76, type: 2}
   - {fileID: 21300000, guid: eaa603590715eef43b43295e05772431, type: 2}
@@ -133,6 +134,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e8398fcec07ff744a92e0091be121869, type: 2}
   - {fileID: 21300000, guid: 446753b9364a63c47a7f4021365f01db, type: 2}
   - {fileID: 21300000, guid: 7ca0edf83b575954fbf58d63b95d9cfb, type: 2}
+  - {fileID: 21300000, guid: 9841d25052e007e4d9fb5a53f0fb67e5, type: 2}
   - {fileID: 21300000, guid: 1f7cbebe7a6036641951dc54ce328c20, type: 2}
   - {fileID: 21300000, guid: 4e0dc71ffaf64a04cb831089b085c0d5, type: 2}
   - {fileID: 21300000, guid: fdbc474fa032a0c42b1bf01344411609, type: 2}
@@ -140,10 +142,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7966e3df8581f504e859078d093444d7, type: 2}
   m_PackedSpriteNamesToIndex:
   - pack_blue
+  - star_off
   - UIFoldoutClosed
   - pack_select
   - icon_battery_on
   - btn_background
+  - btn_change
   - switch_off
   - pop_up_shop
   - switch_on
@@ -152,11 +156,13 @@ SpriteAtlas:
   - btn_noads
   - btn_yellow
   - InputFieldBackground
+  - loading
   - icon_lungs_off
   - btn_racket
   - btn_energy_x2
   - box_on
   - btn_zoom
+  - pack_frame
   - btn_color
   - btn_mode_vape
   - btn_back
@@ -164,15 +170,12 @@ SpriteAtlas:
   - UIFoldoutOpened
   - btn_vape_tank
   - box_off
+  - btn_saber 1
   - popup_bg
   - icon_lungs_off 1
   - icon_bullet 1
   - btn_vape_box
-  - btn_shop
-  - btn_change
-  - pack_frame
-  - loading
-  - btn_saber 1
+  - star_on
   - popup_bg
   - btn_blue
   - popup_bg
@@ -222,6 +225,7 @@ SpriteAtlas:
   - btn_camera_off
   - btn_bullet_x3
   - btn_bullet_x2
+  - btn_shop
   - btn_mode_gun
   - txt_Settings
   - btn_3d 1

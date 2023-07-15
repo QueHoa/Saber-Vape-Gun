@@ -62,11 +62,11 @@ public class SaberPlay : MonoBehaviour
             {                
                 return;
             }
-            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began || saberController.is3D || saberController.isColor)
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Began || saberController.isColor)
             {
                 isTouching = true;
             }                 
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled || saberController.is3D || saberController.isColor)
+            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled || saberController.isColor)
             {
                 isTouching = false;
             }

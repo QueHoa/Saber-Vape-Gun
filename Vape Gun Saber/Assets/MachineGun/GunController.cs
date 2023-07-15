@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +19,11 @@ public class GunController : MonoBehaviour
     public HapticTypes hapticTypes = HapticTypes.HeavyImpact;
     private bool hapticsAllowed = true;
     private bool shakeDetected = false;
+    
+    public bool isSingle;
+    public bool isBurst;
+    public bool isAuto = true;
+    public bool isShake;
 
     [SerializeField]
     private FlashlightPlugin flash;
@@ -44,7 +49,7 @@ public class GunController : MonoBehaviour
         gun[numGun].SetActive(true);
         background[numGround].SetActive(true);
         Sequence sequence = DOTween.Sequence();
-        sequence.Join(icon[0].transform.DOMoveY(52, 0.3f)).SetEase(Ease.OutBack);
+        sequence.Join(icon[0].transform.DOMoveY(51, 0.3f)).SetEase(Ease.OutBack);
         for (int i = 6; i < 9; i++)
         {
             sequence.Join(icon[i].transform.DOMoveX(-23, 0.4f)).SetEase(Ease.OutBack);
@@ -54,7 +59,7 @@ public class GunController : MonoBehaviour
         {
             sequence.Join(icon[i].transform.DOMoveX(23, 0.4f)).SetEase(Ease.OutBack);
         }
-        sequence.Play();
+        sequence.Play();       
     }
 
     // Update is called once per frame
@@ -125,7 +130,7 @@ public class GunController : MonoBehaviour
                 sequence.Join(icon[i].transform.DOMoveX(-23, 0.3f)).SetEase(Ease.OutBack);
             }
             sequence.Join(icon[5].transform.DOMoveX(-16, 0.3f)).SetEase(Ease.OutBack);
-            sequence.Join(icon[0].transform.DOMoveY(52, 0.3f)).SetEase(Ease.OutBack);
+            sequence.Join(icon[0].transform.DOMoveY(51, 0.3f)).SetEase(Ease.OutBack);
             sequence.Join(icon[1].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
             sequence.Join(icon[3].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
             sequence.Join(icon[4].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
@@ -184,4 +189,20 @@ public class GunController : MonoBehaviour
         numGround = change;
         background[numGround].SetActive(true);
     }
+    public void Single(bool single)
+    {
+        isSingle = single;
+    }
+    public void Burst(bool burst)
+    {
+        isBurst = burst;
+    }
+    public void Auto(bool auto)
+    {
+        isAuto = auto;
+    }
+    public void Shake(bool shake)
+    {
+        isShake = shake;
+    }    
 }

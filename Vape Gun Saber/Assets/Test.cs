@@ -7,7 +7,6 @@ using DG.Tweening;
 public class Test : MonoBehaviour
 {
     public GameObject targetObject; // Vật thể bạn muốn thay đổi màu sắc
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +20,7 @@ public class Test : MonoBehaviour
     }
     public void Instance()
     {
-        GameObject effect = (GameObject)Instantiate(targetObject, transform.position, transform.rotation);
+        GameObject effect = (GameObject)Instantiate(targetObject, transform.position, transform.rotation);        
+        Destroy(effect, 5);
     }
 }

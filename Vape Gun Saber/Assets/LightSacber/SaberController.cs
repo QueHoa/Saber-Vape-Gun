@@ -46,7 +46,7 @@ public class SaberController : MonoBehaviour
         saber[numSaber].SetActive(true);
         background[numGround].SetActive(true);
         Sequence sequence = DOTween.Sequence();
-        sequence.Join(icon[0].transform.DOMoveY(52, 0.3f)).SetEase(Ease.OutBack);
+        sequence.Join(icon[0].transform.DOMoveY(51, 0.3f)).SetEase(Ease.OutBack);
         for (int i = 6; i < 9; i++)
         {
             sequence.Join(icon[i].transform.DOMoveX(-23, 0.4f)).SetEase(Ease.OutBack);
@@ -143,7 +143,7 @@ public class SaberController : MonoBehaviour
                 sequence.Join(icon[i].transform.DOMoveX(-23, 0.3f)).SetEase(Ease.OutBack);
             }
             sequence.Join(icon[5].transform.DOMoveX(-16, 0.3f)).SetEase(Ease.OutBack);
-            sequence.Join(icon[0].transform.DOMoveY(52, 0.3f)).SetEase(Ease.OutBack);
+            sequence.Join(icon[0].transform.DOMoveY(51, 0.3f)).SetEase(Ease.OutBack);
             sequence.Join(icon[1].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
             sequence.Join(icon[3].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
             sequence.Join(icon[4].transform.DOMoveX(23, 0.3f)).SetEase(Ease.OutBack);
@@ -154,6 +154,7 @@ public class SaberController : MonoBehaviour
     }
     public void setColor()
     {
+        if (isSaber) setSaber();
         if (isColor)
         {
             icon[9].transform.DOMoveX(65, 0.3f);
@@ -162,11 +163,11 @@ public class SaberController : MonoBehaviour
         {
             icon[9].transform.DOMoveX(23, 0.5f).SetEase(Ease.OutBack);
         }
-        isColor = !isColor;
-        if (isSaber) setSaber();
+        isColor = !isColor;   
     }
     public void setSaber()
     {
+        if (isColor) setColor();
         if (isSaber)
         {
             icon[10].transform.DOMoveX(60, 0.3f);
@@ -175,8 +176,7 @@ public class SaberController : MonoBehaviour
         {
             icon[10].transform.DOMoveX(22, 0.3f).SetEase(Ease.OutBack);
         }        
-        isSaber = !isSaber;
-        if (isColor) setColor();
+        isSaber = !isSaber;     
     }
     public void setGround()
     {
