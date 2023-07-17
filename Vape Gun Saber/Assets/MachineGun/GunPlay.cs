@@ -18,8 +18,8 @@ public class GunPlay : MonoBehaviour
     private bool isBomb = false;
     [SerializeField]
     private bool isSmoke = false;
-    [SerializeField]
-    private bool isBursting = false;
+    /*[SerializeField]
+    private bool isBursting = false;*/
     public bool noBurst;
     [SerializeField]
     private int numBurst;
@@ -154,22 +154,15 @@ public class GunPlay : MonoBehaviour
             }
             else
             {
-                if (isTouching && !isBursting)
+                if (isTouching && cooldownTimer >= shootCooldown && numBullet != 0)
                 {
-                    isBursting = true;
-                    float t = numBurst * defaultTime;
-                    while (t >= 0 && cooldownTimer >= shootCooldown && numBullet != 0)
+                    if (cooldownTimer >= (shootCooldown + 0.2f) && isSmoke)
                     {
-                        if (cooldownTimer >= (shootCooldown + 0.2f) && isSmoke)
-                        {
-                            GameObject smokeEffect = (GameObject)Instantiate(curvySmoke, shootTran.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
-                            Destroy(smokeEffect, 2);
-                        }
-                        Shoot();
-                        t -= Time.deltaTime;
+                        GameObject smokeEffect = (GameObject)Instantiate(curvySmoke, shootTran.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        Destroy(smokeEffect, 2);
                     }
-                    isBursting = false;
-                }            
+                    StartCoroutine(ShootBurst());
+                }
             }         
             ResetRotate();
         }       
@@ -202,6 +195,18 @@ public class GunPlay : MonoBehaviour
         {           
             StartCoroutine(NoBullet());
         }        
+    }
+    IEnumerator ShootBurst()
+    {
+        for (int i = 0; i < numBurst; i++)
+        {
+            Shoot();
+            yield return new WaitForSeconds(shootCooldown);
+            if(numBullet == 0)
+            {
+                break;
+            } 
+        }
     }
     private void ResetRotate()
     {

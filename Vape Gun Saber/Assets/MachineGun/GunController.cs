@@ -16,6 +16,7 @@ public class GunController : MonoBehaviour
     
     private int numGun;
     private int numGround;
+    public float shakeThreshold = 2.0f;
     public HapticTypes hapticTypes = HapticTypes.HeavyImpact;
     private bool hapticsAllowed = true;
     private bool shakeDetected = false;
@@ -29,6 +30,8 @@ public class GunController : MonoBehaviour
     private FlashlightPlugin flash;
     [SerializeField]
     private SceneLoading loading;
+    [SerializeField]
+    private GameObject toggleBurst;
     [SerializeField]
     private GameObject setting;   
     [SerializeField]
@@ -67,12 +70,17 @@ public class GunController : MonoBehaviour
     {
         if (gun[numGun].GetComponent<GunPlay>().isShooting)
         {
-            flash.TurnOn();           
+            flash.TurnOn();
+            MMVibrationManager.Haptic(hapticTypes, true, true, this);
         }
         else
         {            
             flash.TurnOff();
-        }                     
+        }
+        if (gun[numGun].GetComponent<GunPlay>().noBurst)
+        {
+            toggleBurst.SetActive(false);
+        }
     }
     public void Set3D()
     {

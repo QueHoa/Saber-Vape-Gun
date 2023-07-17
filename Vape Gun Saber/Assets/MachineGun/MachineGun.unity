@@ -384,7 +384,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 4
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -1087,7 +1086,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 3
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -1366,9 +1364,9 @@ RectTransform:
   m_Father: {fileID: 1856476676}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -82.22049, y: -246.247}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 164.441, y: 133.728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202602459
@@ -1911,9 +1909,9 @@ RectTransform:
   m_Father: {fileID: 1856476676}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -82.22049, y: -647.44}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 164.441, y: 133.728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &267887549
@@ -2176,7 +2174,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 4
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -3381,7 +3378,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 3
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -4076,7 +4072,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 4
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -5298,7 +5293,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 6
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -5440,7 +5434,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 1
   numBurst: 0
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -6821,7 +6814,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 5
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -6869,7 +6861,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 5
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -6930,6 +6921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is3D: 0
+  shakeThreshold: 2
   hapticTypes: 6
   isSingle: 0
   isBurst: 0
@@ -6937,6 +6929,7 @@ MonoBehaviour:
   isShake: 0
   flash: {fileID: 204819476}
   loading: {fileID: 2026593895}
+  toggleBurst: {fileID: 1467476941}
   setting: {fileID: 9018299723725700044}
   noInter: {fileID: 642985757}
   Bullet: {fileID: 1569322664}
@@ -7936,7 +7929,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 1
   numBurst: 0
   shootEffect: {fileID: 29505317651440494, guid: c9874bef05989984ba433f3901abe21c, type: 3}
@@ -7986,9 +7978,9 @@ RectTransform:
   m_Father: {fileID: 1856476676}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -82.22, y: -379.98}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 164.441, y: 133.728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467476943
@@ -8227,9 +8219,9 @@ RectTransform:
   m_Father: {fileID: 1856476676}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -82.22049, y: -513.71}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 164.441, y: 133.728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1489059593
@@ -8324,7 +8316,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 1
   isSmoke: 0
-  isBursting: 0
   noBurst: 1
   numBurst: 0
   shootEffect: {fileID: 8402364028292309584, guid: 28d0cc4cc7bbc8b46820890ec4831fcb, type: 3}
@@ -8724,7 +8715,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 0
   numBurst: 2
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -10184,6 +10174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1856476676}
   - component: {fileID: 1856476677}
+  - component: {fileID: 1856476679}
   m_Layer: 5
   m_Name: Mode
   m_TagString: Untagged
@@ -10212,7 +10203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 499.54626, y: -268}
+  m_AnchoredPosition: {x: 499.54626, y: -492}
   m_SizeDelta: {x: 160.232, y: 156.423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1856476677
@@ -10228,6 +10219,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 1
+--- !u!114 &1856476679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856476675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &1860528225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10674,7 +10691,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 1
-  isBursting: 0
   noBurst: 1
   numBurst: 0
   shootEffect: {fileID: 1425160772043371, guid: 9f628de7dc24e424da81cd8a14fe602b, type: 3}
@@ -11058,7 +11074,6 @@ MonoBehaviour:
   isShooting: 0
   isBomb: 0
   isSmoke: 0
-  isBursting: 0
   noBurst: 1
   numBurst: 0
   shootEffect: {fileID: 7254103186376950584, guid: b7a2e106532860346b94a69c2a7679ff, type: 3}
